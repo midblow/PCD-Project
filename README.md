@@ -38,9 +38,9 @@ Adapun tujuan dari pembuatan detectSea adalah sebagai berikut:
 
 3. **Mendukung Konservasi dan Perlindungan**: Memperkuat upaya konservasi laut dengan menyediakan alat yang lebih efektif untuk identifikasi dan pengawasan terhadap keberagaman hayati laut, sehingga mendukung keberlanjutan ekosistem laut dan manfaat ekonomi yang bergantung padanya seperti perikanan dan pariwisata.
 
-## DetectSea Berdasarkan Jenis Objek yang Berbeda
+# DetectSea Berdasarkan Jenis Objek yang Berbeda
 
-### Data Understanding
+## Data Understanding
 
 Pada Project detectSea ini digunakan kumpulan data (dataset) berupa gambar dari beberapa spesies laut, diantaranya coral, kepiting, ikan, ubur-ubur, serta bintang laut yang diambil dari situs kaggle dengan link https://www.kaggle.com/datasets/vencerlanz09/sea-animals-image-dataste jumlah rincian dari label yang digunakan adalah sebagai berikut:
 
