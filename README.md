@@ -57,6 +57,7 @@ Pada Project detectSea ini digunakan kumpulan data (dataset) berupa gambar dari 
 ## Analisis Percobaan
 
 ### **Percobaan 0**:
+------------------------
 
 Pada percobaan 0 ini tidak dilakukan proses preprocessing sama sekali dikarenakan tujuannya adalah untuk mengetahui tingkat akurasi yang akan didapatkan tanpa proses prerpocessing terlebih dahulu.
 
@@ -120,6 +121,7 @@ Setalh itu, ditampilkan juga hasil kurva accuracy dan kurva loss yang didapatkan
 *Gambar 2.6 Model Fitting Percobaan 0*
 
 ### **Percobaan 1**:
+------------------------
 
 Pada percobaan 1 ini dilakukan berbagai proses preprocessing dengan tujuan untuk mengetahui tingkat akurasi yang akan didapatkan. Tahapan dari proses preprocessing tersebut adalah sebagai berikut:
 Grayscale > Threshold > Edge Detection > Find Countur
