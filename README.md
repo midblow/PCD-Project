@@ -14,7 +14,7 @@
 
 ### Muhammad akbar setiadi (F1D022140)
 
-# DetectSea: Deteksi Objek Laut dengan Metode CNN
+# DetectSea: Deteksi Spesies Laut dengan Metode CNN
 
 ## Latar Belakang
 
@@ -26,7 +26,7 @@ Pemilihan topik ini didasarkan oleh kebutuhan untuk mengembangkan metode yang le
 
 ## Identifikasi Masalah
 
-Lautan merupakan habitat vital bagi berbagai spesies flora dan fauna yang mendukung keberlangsungan ekosistem global serta berbagai sektor penting manusia seperti perikanan, pariwisata, dan penelitian ilmiah. Namun, tantangan besar yang dihadapi adalah sulitnya eksplorasi dan pemantauan hewan laut akibat kondisi lingkungan yang kompleks dan sulit dijangkau. Hal ini mengakibatkan keterbatasan dalam memperoleh data yang akurat dan konsisten mengenai populasi dan perilaku hewan laut. Convolutional Neural Networks (CNN), yang terkenal efektif dalam menganalisis data visual seperti gambar dan video, menjanjikan solusi untuk meningkatkan efisiensi dan ketepatan dalam mendeteksi serta memantau hewan laut. Melalui implementasi CNN dalam program `detectSea`, diharapkan dapat ditingkatkan kemampuan untuk mengenali spesies hewan laut dari citra dengan tingkat keakuratan yang tinggi. Namun, untuk mencapai hal ini, diperlukan penyelesaian masalah terkait dengan ketersediaan data yang berkualitas, validasi model yang konsisten dalam berbagai kondisi lingkungan laut yang berubah-ubah, serta integrasi teknologi ini ke dalam strategi konservasi laut yang berkelanjutan. Dengan mengatasi tantangan-tantangan ini, program `detectSea` diharapkan dapat memberikan kontribusi penting dalam pemahaman dan perlindungan terhadap keanekaragaman hayati di laut.
+Lautan merupakan habitat vital bagi berbagai spesies flora dan fauna yang mendukung keberlangsungan ekosistem global serta berbagai sektor penting manusia seperti perikanan, pariwisata, dan penelitian ilmiah. Namun, tantangan besar yang dihadapi adalah sulitnya eksplorasi dan pemantauan pada spesies laut akibat kondisi lingkungan yang kompleks dan sulit dijangkau. Hal ini mengakibatkan keterbatasan dalam memperoleh data yang akurat dan konsisten mengenai populasi dan perilaku pada spesies laut. Convolutional Neural Networks (CNN) yang terkenal efektif dalam menganalisis data visual seperti gambar dan video, menjanjikan solusi untuk meningkatkan efisiensi dan ketepatan dalam mendeteksi serta memantau hewan laut. Melalui implementasi CNN dalam program `detectSea`, diharapkan dapat ditingkatkan kemampuan untuk mengenali spesies hewan laut dari citra dengan tingkat keakuratan yang tinggi. Namun, untuk mencapai hal ini, diperlukan penyelesaian masalah terkait dengan ketersediaan data yang berkualitas, validasi model yang konsisten dalam berbagai kondisi lingkungan laut yang berubah-ubah, serta integrasi teknologi ini ke dalam strategi konservasi laut yang berkelanjutan. Dengan mengatasi tantangan-tantangan ini, program `detectSea` diharapkan dapat memberikan kontribusi penting dalam pemahaman dan perlindungan terhadap keanekaragaman hayati di laut.
 
 ## Tujuan
 
@@ -34,11 +34,171 @@ Adapun tujuan dari pembuatan detectSea adalah sebagai berikut:
 
 1. **Meningkatkan Efisiensi Pemantauan**: Mengimplementasikan Convolutional Neural Networks (CNN) dalam program `detectSea` untuk meningkatkan efisiensi dalam mendeteksi dan memantau berbagai spesies hewan laut dari gambar atau video, sehingga memungkinkan pengumpulan data yang lebih cepat dan akurat tentang populasi dan perilaku hewan laut.
 
-2. **Mengatasi Tantangan Lingkungan**: Menyediakan solusi teknologi yang dapat menangani tantangan lingkungan yang dinamis dan sulit dijangkau di lautan, sehingga meningkatkan konsistensi dan validitas data yang diperoleh dari pemantauan hewan laut.
+2. **Mendukung Konservasi dan Perlindungan**: Memperkuat upaya konservasi laut dengan menyediakan alat yang lebih efektif untuk identifikasi dan pengawasan terhadap keberagaman hayati laut, sehingga mendukung keberlanjutan ekosistem laut dan manfaat ekonomi yang bergantung padanya seperti perikanan dan pariwisata.
 
-3. **Mendukung Konservasi dan Perlindungan**: Memperkuat upaya konservasi laut dengan menyediakan alat yang lebih efektif untuk identifikasi dan pengawasan terhadap keberagaman hayati laut, sehingga mendukung keberlanjutan ekosistem laut dan manfaat ekonomi yang bergantung padanya seperti perikanan dan pariwisata.
+# DetectSea Berdasarkan Jenis Ikan yang Berbeda
 
-# DetectSea Berdasarkan Jenis Objek yang Berbeda
+## Data Understanding
+
+Pada Project detectSea ini digunakan kumpulan data (dataset) berupa gambar dari beberapa spesies ikan, diantaranya Black Sea Sprat, Gilt-Head Bream, Hourse Mackerel, Red Mullet, Red Sea Bream, Sea Bass, Shrimp, dan Trout yang diambil dari situs kaggle dengan link https://www.kaggle.com/datasets/crowww/a-large-scale-fish-dataset jumlah rincian dari label yang digunakan adalah sebagai berikut:
+
+<img src="ImageSource/Data Distribution_1.png">
+
+*Gambar 1.1 Distribusi Data*
+
+<img src="ImageSource/display_object_1.png">
+
+*Gambar 1.2 Tampilan Objek*
+
+## Analisis Percobaan
+
+### **Percobaan 0**:
+------------------------
+
+Pada percobaan 0 ini tidak dilakukan proses preprocessing sama sekali dikarenakan tujuannya adalah untuk mengetahui tingkat akurasi yang akan didapatkan tanpa proses prerpocessing terlebih dahulu.
+
+#### Data Preparation
+
+Pada bagian ini tidak dilakukan proses resize dan augmentasi karena masing-masing label sudah memiliki ukuran dan jumlah yang sama.
+
+#### Modeling & Evaluation
+
+Dari 8000 data tadi dilakukan pembagian data pelatihan dan data uji dengan perbandingan 80:20 sehingga didapat `Data Pelatihan = 6400` dan `Data Pengujian = 1600`.
+Lalu, didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan pengujian yang mana tiga model tersebut yaitu KNN, SVM, dan Random Forest.
+
+**Tabel 1.1 Hasil Evaluasi Menggunakan GLCM Pada 3 Metode Berbeda Tanpa Preprocessing**
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| KNN   | 0.97     | 0.970197  | 0.97   | 0.969974 |
+| SVM   | 0.9875   | 0.987684  | 0.9875 | 0.987534 |
+| RF    | 0.99125  | 0.991355  | 0.99125| 0.991241 |
+
+
+&nbsp;
+### **Percobaan 1**:
+------------------------
+
+Pada percobaan 1 ini dilakukan dua proses preprocessing dengan tujuan untuk mengetahui tingkat akurasi yang akan didapatkan. Tahapan dari proses preprocessing tersebut adalah sebagai berikut:
+Remove Background > Grayscale 
+
+#### Data Preparation
+
+Pada bagian ini tidak dilakukan proses resize dan augmentasi karena masing-masing label sudah memiliki ukuran dan jumlah yang sama.
+
+#### Modeling & Evaluation
+
+Dari 8000 data dilakukan pembagian data pelatihan dan data uji dengan perbandingan 80:20 sehingga didapat `Data Pelatihan = 6400` dan `Data Pengujian = 1600`.
+Lalu, didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan pengujian yang mana tiga model tersebut yaitu KNN, SVM, dan Random Forest.
+
+**Tabel 1.2 Hasil Evaluasi Menggunakan GLCM Pada 3 Metode Berbeda dengan Preprocessing**
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| KNN   | 0.940625 | 0.941031  | 0.940625 | 0.940692 |
+| SVM   | 0.958125 | 0.959343  | 0.958125 | 0.958273 |
+| RF    | 0.991875 | 0.991908  | 0.991875 | 0.991881 |
+
+#### Kesimpulan
+
+Pada `Percobaan 1` ini didapatkan hasil akurasi dengan Model KKN, SVM, dan RF yang lebih rendah dari percobaan sebelumnya dengan perbedaan yang cukup tipis.
+
+&nbsp;
+### **Percobaan 2**:
+------------------------
+
+Pada percobaan 2 ini dilakukan berbagai proses preprocessing dengan tujuan untuk mengetahui tingkat akurasi yang akan didapatkan. Tahapan dari proses preprocessing tersebut adalah sebagai berikut:
+Remove Background > Grayscale > Median Blur
+
+#### Data Preparation
+
+Pada bagian ini tidak dilakukan proses resize dan augmentasi karena masing-masing label sudah memiliki ukuran dan jumlah yang sama.
+
+#### Modeling & Evaluation
+
+Dari 8000 data dilakukan pembagian data pelatihan dan data uji dengan perbandingan 80:20 sehingga didapat `Data Pelatihan = 6400` dan `Data Pengujian = 1600`.
+Lalu, didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan pengujian yang mana tiga model tersebut yaitu KNN, SVM, dan Random Forest.
+
+**Tabel 1.3 Hasil Pada Percobaan 2**
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| KNN   | 0.906875 | 0.918674  | 0.906875 | 0.90747  |
+| SVM   | 0.951875 | 0.953225  | 0.951875 | 0.951976 |
+| RF    | 0.978125 | 0.97874   | 0.978125 | 0.978208 |
+
+#### Kesimpulan
+
+Pada `Percobaan 2` ini didapatkan hasil akurasi dengan Model KKN, SVM, dan RF yang lebih rendah dari percobaan-percobaan sebelumnya. Hal ini bisa dikarenakan proses preprocessing yang kurang baik.
+
+&nbsp;
+### **Percobaan 3**:
+------------------------
+
+Pada percobaan 3 ini dilakukan berbagai proses preprocessing dengan tujuan untuk mengetahui tingkat akurasi yang akan didapatkan. Tahapan dari proses preprocessing tersebut adalah sebagai berikut:
+Remove Background > Grayscale > Find Contour
+
+#### Data Preparation
+
+Pada bagian ini tidak dilakukan proses resize dan augmentasi karena masing-masing label sudah memiliki ukuran dan jumlah yang sama.
+
+#### Modeling & Evaluation
+
+Dari 8000 data dilakukan pembagian data pelatihan dan data uji dengan perbandingan 80:20 sehingga didapat `Data Pelatihan = 6400` dan `Data Pengujian = 1600`.
+Lalu, didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan pengujian yang mana tiga model tersebut yaitu KNN, SVM, dan Random Forest.
+
+**Tabel 1.4 Hasil Pada Percobaan 3**
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| KNN   | 0.865763 | 0.867303  | 0.865763 | 0.865298 |
+| SVM   | 0.88339  | 0.885438  | 0.88339  | 0.883496 |
+| RF    | 0.962712 | 0.963073  | 0.962712 | 0.962588 |
+
+#### Kesimpulan
+
+Pada `Percobaan 3` ini didapatkan hasil akurasi dengan Model KKN, SVM, dan RF yang lebih rendah dari percobaan-percobaan sebelumnya. Hal ini bisa dikarenakan proses preprocessing yang kurang baik.
+
+&nbsp;
+### **Percobaan 4**:
+------------------------
+
+Pada percobaan 4 ini dilakukan berbagai proses preprocessing dengan tujuan untuk mengetahui tingkat akurasi yang akan didapatkan. Tahapan dari proses preprocessing tersebut adalah sebagai berikut:
+Remove Background > Grayscale > Find Contour > Median Blur
+
+#### Data Preparation
+
+Pada bagian ini tidak dilakukan proses resize dan augmentasi karena masing-masing label sudah memiliki ukuran dan jumlah yang sama.
+
+#### Modeling & Evaluation
+
+Dari 8000 data dilakukan pembagian data pelatihan dan data uji dengan perbandingan 80:20 sehingga didapat `Data Pelatihan = 6400` dan `Data Pengujian = 1600`.
+Lalu, didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan pengujian yang mana tiga model tersebut yaitu KNN, SVM, dan Random Forest.
+
+**Tabel 1.5 Hasil Pada Percobaan 4**
+
+| Model | Accuracy | Precision | Recall | F1 Score |
+|-------|----------|-----------|--------|----------|
+| KNN   | 0.863051 | 0.864407  | 0.863051 | 0.862105 |
+| SVM   | 0.865085 | 0.866322  | 0.865085 | 0.864283 |
+| RF    | 0.96     | 0.96054   | 0.96    | 0.959904 |
+
+#### Kesimpulan
+
+Pada `Percobaan 4` ini didapatkan hasil akurasi dengan Model KKN, SVM, dan RF yang lebih rendah dari percobaan-percobaan sebelumnya.
+
+# Kesimpulan DetectSea Berdasarkan Jenis Ikan yang Berbeda
+
+Pada beberapa proses percobaan yang telah dilakukan didapatkan kesimpulan bahwa percobaan tanpa preprocessing memiliki akurasi yang lebih tinggi dibandingkan dengan percobaan yang menggunakan proses preprocessing. Oleh karena itu, maka didapatkan beberapa asumsi mengapa tingkat akurasi ini tidak naik, antara lain sebagai berikut:
+
+- **Data**: Data ikan-ikan tersebut mungkin saja sudah bagus sehingga untuk melakukan pembacaan dengan computer vision pun tidak perlu ditambah lagi dengan melakukan proses preprocessing. 
+- **Bentuk Ikan**: Ikan-ikan tersebut memiliki bentuk yang hampir sama sehingga bisa saja computer vision tidak dapat melakukan pembacaan dengan lebih baik ketika dilakukan proses preprocessing yang seharusnya dapat meningkatkan tingkat akurasi.
+- **Penamaan File**: Penamaan File pada dataset tersebut memiliki format nama yang sama tetapi terletak pada beda folder saja sehingga bisa saja computer vision tidak dapat melakukan pembacaan dengan lebih baik karena hal itu.
+- **Preprocessing & Tahapannya**: Mungkin masih harus dilakukan eksplorasi lebih lanjut untuk melakukan percobaan dengan metode dan tahapan preprocessing yang berbeda-beda.
+
+Berdasarkan alasan-alasan di atas maka kami memutuskan untuk melakukan pergantian dataset dan mengatasi alasan-alasan tersebut pada eksperimen selanjutnya. Eksperimen tersebut kami beri nama **DetectSea Berdasarkan Jenis Spesies yang Berbeda**.
+
+# DetectSea Berdasarkan Jenis Spesies yang Berbeda
 
 ## Data Understanding
 
@@ -449,3 +609,11 @@ Setalh itu, ditampilkan juga hasil kurva accuracy dan kurva loss yang didapatkan
 #### Kesimpulan
 
 Pada `Percobaan 7` ini didapatkan hasil akurasi yang lebih rendah dibandingkan dengan `Percobaan 4` dengan perbedaan yang cukup tipis yakni `0.006` dan hasil dari percobaan ini juga memiliki hasil akurasi yang lebih rendah jika dibandingkan dengan percobaan sebelumnya. Maka dapat disimpulkan bahwa penggurangan noice pada gambar dengan menggunakan metode `Median Blur` terbukti kurang efektif untuk meningkatkan akurasi berbeda dengan penggunaan metode pada percobaan sebelumnya.
+
+# **Kesimpulan Akhir**:
+
+Berdasarkan dua proses eksperimen dengan dataset yang berbeda dan percobaan-percobaan yang dilakukan selama proses tersebut maka dapat kami simpulkan hal-hal sebagai berikut:
+
+1. Peningkatan akurasi dalam melakukan proses deteksi spesies laut dapat dilakukan dengan metode CNN yang membutuhkan waktu lebih cepat dengan metode GLCM dengan berbagai modelnya. Peningkatan akurasinya sendiri bisa dilakukan dengan meningkatkan jumlah data, menggunakan metode preprocessing yang sesuai, meningkatkan learning rate, dan menggunakan early stopping lalu memilih epoch terbaik.
+
+2. Program `DetectSea` ini dapat mendukung program konservasi laut baik untuk tujuan penelitian maupun pemeliharaan sumber daya laut. Penerapan program ini pun bisa diterapkan di Unmanned Underwater Vehicle (UUV) atau Remotely Operated Vehicle (ROV) yang merupakan drone bawah air dengan tujuan melakukan konservasi laut.
