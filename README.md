@@ -44,12 +44,15 @@ Adapun tujuan dari pembuatan detectSea adalah sebagai berikut:
 
 Pada Project detectSea ini digunakan kumpulan data (dataset) berupa gambar dari beberapa spesies laut, diantaranya coral, kepiting, ikan, ubur-ubur, serta bintang laut yang diambil dari situs kaggle dengan link https://www.kaggle.com/datasets/vencerlanz09/sea-animals-image-dataste jumlah rincian dari label yang digunakan adalah sebagai berikut:
 
-<img src="ImageSource/display_object.png" alt="Display" width="300" height="300">
-<li>**Corals** dengan jumlah 200 gambar 
-<li>**Crabs** dengan jumlah 250 gambar 
-<li>**Fish** dengan jumlah 200 gambar 
-<li>**Jellyfish** dengan jumlah 300 gambar 
-<li>**Starfish** dengan jumlah 200 gambar
+<img src="ImageSource/display_object.png">
+
+*Gambar 2.1 Tampilan Objek*
+
+- **Corals** dengan jumlah 200 gambar 
+- **Crabs** dengan jumlah 250 gambar 
+- **Fish** dengan jumlah 200 gambar 
+- **Jellyfish** dengan jumlah 300 gambar 
+- **Starfish** dengan jumlah 200 gambar
 
 ## Analisis Percobaan
 
@@ -60,13 +63,15 @@ Pada percobaan 0 ini tidak dilakukan proses preprocessing sama sekali dikarenaka
 #### Data Preparation
 
 Pada bagian ini dilakukan proses resize pada function `Preprocess_images` terhadap seluruh gambar dengan ukuran 300x300
-<img src="ImageSource/Data Distribution.png" alt="Distribusi Data" width="300" height="300">
-*Gambar 2.1 Distribusi Data*
+<img src="ImageSource/Data Distribution.png">
+
+*Gambar 2.2 Distribusi Data*
 
 Setelah itu dilakukan proses augmentasi dengan masing-masing gambar di-augmentasi sebanyak dua proses yakni proses rotasi sejauh 90 derajat dan sejauh -90 derajat.
 
-<img src="ImageSource/After Augmentation.png" alt="Distribusi Data Setelah Augmentasi" width="300" height="300">
-*Gambar 2.2 Distribusi Data Setelah Augmentasi*
+<img src="ImageSource/After Augmentation.png">
+
+*Gambar 2.3 Distribusi Data Setelah Augmentasi*
 
 #### Modeling & Evaluation
 
@@ -83,7 +88,8 @@ Didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan
 Setelah itu, hasil evaluasi tersebut juga ditampilkan pada confusion matrix. Confusion matrix ini menggambarkan seberapa baik model dapat mengklasifikasikan data dengan memperlihatkan persentase prediksi yang benar dari setiap kelas, serta kesalahan prediksi antara kelas-kelas yang berbeda.
 
 <img src="ImageSource/Conf_Matrix_2.0.png" alt="Confusion Matrix Tanpa Preprocessing" width="300" height="300">
-*Gambar 2.3 Confusion Matrix Tanpa Preprocessing*
+
+*Gambar 2.4 Confusion Matrix Tanpa Preprocessing*
 
 Selanjutnya dilakukan modeling dengan menggunakan model CNN dengan hasil evaluasi sebagai berikut:
 
@@ -104,12 +110,14 @@ Selanjutnya dilakukan modeling dengan menggunakan model CNN dengan hasil evaluas
 Kemudian, ditampilkan juga confusion matrix khusus untuk model CNN ini yang menampilkan jumlah absolut prediksi yang tepat dan kesalahan prediksi untuk setiap kelas target.
 
 <img src="ImageSource/Conf_Matrix_2.0.2.png" alt="Confusion Matrix Tanpa Preprocessing dengan CNN" width="300" height="300">
-*Gambar 2.4 Confusion Matrix Tanpa Preprocessing dengan CNN*
+
+*Gambar 2.5 Confusion Matrix Tanpa Preprocessing dengan CNN*
 
 Setalh itu, ditampilkan juga hasil kurva accuracy dan kurva loss yang didapatkan berdasarkan data dari proses CNN tersebut:
 
 <img src="ImageSource/Model Fit_2.0.png" alt="Model Fitting Percobaan 0" width="300" height="300">
-*Gambar 2.5 Model Fitting Percobaan 0*
+
+*Gambar 2.6 Model Fitting Percobaan 0*
 
 ### Percobaan 1:
 
@@ -150,13 +158,15 @@ Selanjutnya dilakukan modeling dengan menggunakan model CNN dengan hasil evaluas
 
 Kemudian, ditampilkan juga confusion matrix khusus untuk model CNN ini yang menampilkan jumlah absolut prediksi yang tepat dan kesalahan prediksi untuk setiap kelas target.
 
-<img src="ImageSource/Conf_Matrix_2.1.2.png" alt="Confusion Matrix dengan Preprocessing Pada CNN" width="300" height="300">
-*Gambar 2.6 Confusion Matrix dengan Preprocessing Pada CNN*
+<img src="ImageSource/Conf_Matrix_2.1.2.png">
+
+*Gambar 2.7 Confusion Matrix dengan Preprocessing Pada CNN*
 
 Setalh itu, ditampilkan juga hasil kurva accuracy dan kurva loss yang didapatkan berdasarkan data dari proses CNN tersebut:
 
-<img src="ImageSource/Model Fit_2.1.png" alt="Model Fitting Percobaan 1" width="300" height="300">
-*Gambar 2.7 Model Fitting Percobaan 1*
+<img src="ImageSource/Model Fit_2.1.png">
+
+*Gambar 2.8 Model Fitting Percobaan 1*
 
 
 - Percobaan 0 menghasilkan akurasi lebih rendah dibandingkan dengan percobaan lain karena penggunaan metode GLCM dalam preprocessing tidak memberikan keuntungan signifikan bagi model CNN.
