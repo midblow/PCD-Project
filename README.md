@@ -103,10 +103,9 @@ Selanjutnya dilakukan modeling dengan menggunakan model CNN dengan hasil evaluas
 | 2                | 0.89      | 0.86   | 0.87                   | 120     |
 | 3                | 0.92      | 0.91   | 0.92                   | 172     |
 | 4                | 0.72      | 0.72   | 0.72                   | 113     |
-| **Accuracy**     |           |        | 0.84                   | 690     |
+| **Accuracy**     |           |        | **0.8420289754867554** | 690     |
 | **Macro Avg**    | 0.84      | 0.83   | 0.84                   | 690     |
 | **Weighted Avg** | 0.84      | 0.84   | 0.84                   | 690     |
-| **Accuracy CNN** |           |        | **0.8420289754867554** |         |
 
 Kemudian, ditampilkan juga confusion matrix khusus untuk model CNN ini yang menampilkan jumlah absolut prediksi yang tepat dan kesalahan prediksi untuk setiap kelas target.
 
@@ -119,7 +118,7 @@ Setalh itu, ditampilkan juga hasil kurva accuracy dan kurva loss yang didapatkan
 <img src="ImageSource/Model Fit_2.0.png">
 
 *Gambar 2.6 Model Fitting Percobaan 0*
-
+---------------------------------------------------------------------------------------------
 ### Percobaan 1:
 
 Pada percobaan 1 ini dilakukan berbagai proses preprocessing dengan tujuan untuk mengetahui tingkat akurasi yang akan didapatkan. Tahapan dari proses preprocessing tersebut adalah sebagai berikut:
@@ -152,10 +151,9 @@ Selanjutnya dilakukan modeling dengan menggunakan model CNN dengan hasil evaluas
 | 2                | 0.65      | 0.41   | 0.50                   | 120     |
 | 3                | 0.65      | 0.76   | 0.70                   | 172     |
 | 4                | 0.44      | 0.50   | 0.47                   | 113     |
-| **Accuracy**     |           |        | 0.55                   | 690     |
+| **Accuracy**     |           |        | **0.5536231994628906** | 690     |
 | **Macro Avg**    | 0.55      | 0.54   | 0.54                   | 690     |
 | **Weighted Avg** | 0.56      | 0.55   | 0.55                   | 690     |
-| **Accuracy CNN** |           |        | **0.5536231994628906** |         |
 
 Kemudian, ditampilkan juga confusion matrix khusus untuk model CNN ini yang menampilkan jumlah absolut prediksi yang tepat dan kesalahan prediksi untuk setiap kelas target.
 
