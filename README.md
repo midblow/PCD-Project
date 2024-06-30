@@ -14,7 +14,7 @@
 
 ### Muhammad akbar setiadi (F1D022140)
 
-# "DetectSea: Deteksi Objek Laut dengan Metode CNN"
+# DetectSea: Deteksi Objek Laut dengan Metode CNN
 
 ## Latar Belakang
 
@@ -63,6 +63,7 @@ Pada percobaan 0 ini tidak dilakukan proses preprocessing sama sekali dikarenaka
 #### Data Preparation
 
 Pada bagian ini dilakukan proses resize pada function `Preprocess_images` terhadap seluruh gambar dengan ukuran 300x300
+
 <img src="ImageSource/Data Distribution.png">
 
 *Gambar 2.2 Distribusi Data*
@@ -87,7 +88,7 @@ Didapatkan hasil evaluasi menggunakan berbagai model terhadap data pelatihan dan
 
 Setelah itu, hasil evaluasi tersebut juga ditampilkan pada confusion matrix. Confusion matrix ini menggambarkan seberapa baik model dapat mengklasifikasikan data dengan memperlihatkan persentase prediksi yang benar dari setiap kelas, serta kesalahan prediksi antara kelas-kelas yang berbeda.
 
-<img src="ImageSource/Conf_Matrix_2.0.png" alt="Confusion Matrix Tanpa Preprocessing" width="300" height="300">
+<img src="ImageSource/Conf_Matrix_2.0.png">
 
 *Gambar 2.4 Confusion Matrix Tanpa Preprocessing*
 
@@ -109,13 +110,13 @@ Selanjutnya dilakukan modeling dengan menggunakan model CNN dengan hasil evaluas
 
 Kemudian, ditampilkan juga confusion matrix khusus untuk model CNN ini yang menampilkan jumlah absolut prediksi yang tepat dan kesalahan prediksi untuk setiap kelas target.
 
-<img src="ImageSource/Conf_Matrix_2.0.2.png" alt="Confusion Matrix Tanpa Preprocessing dengan CNN" width="300" height="300">
+<img src="ImageSource/Conf_Matrix_2.0.2.png">
 
 *Gambar 2.5 Confusion Matrix Tanpa Preprocessing dengan CNN*
 
 Setalh itu, ditampilkan juga hasil kurva accuracy dan kurva loss yang didapatkan berdasarkan data dari proses CNN tersebut:
 
-<img src="ImageSource/Model Fit_2.0.png" alt="Model Fitting Percobaan 0" width="300" height="300">
+<img src="ImageSource/Model Fit_2.0.png">
 
 *Gambar 2.6 Model Fitting Percobaan 0*
 
